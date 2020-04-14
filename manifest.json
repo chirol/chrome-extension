@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "description": "",
-  "name": "my chrome extension",
+  "description": "shortcut for Youtube",
+  "name": "chromeAddonShortcut",
   "version": "0.1",
   "browser_action": {
     "default_popup": "popup.html"
@@ -10,8 +10,10 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "contents_scripts": {
-    "js": ["contents_scripts.js"]
-  }
+  "permissions": ["activeTab", "declarativeContent"],
+  "content_scripts":[{
+    "matches": ["https://www.youtube.com/*"],
+    "js":["popup.js"]
+  }]
 
 }
